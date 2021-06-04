@@ -1,0 +1,19 @@
+<%= form_with url: root_url, method: :get, class: "p-3"  do |f|  %>
+    <%= f.label :from  %>
+    <%= f.collection_select :departure_id, Airport.all, :id, :code  %>
+
+    <br /><br />
+
+    <%= f.label :to %>
+    <%= f.collection_select :arrival_id, Airport.all, :id, :code  %>
+
+    <br /><br />
+
+    <%= f.label :passengers  %>
+    <%= f.select :passengers, (1..4).to_a  %>
+
+    <br /><br />
+
+    <%= f.label :date  %>
+    <%= f.collection_select :date, Flight.all, :takeoff, :takeoff  %>
+<% end  %>
