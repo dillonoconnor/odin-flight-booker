@@ -15,5 +15,9 @@
     <br /><br />
 
     <%= f.label :date  %>
-    <%= f.collection_select :date, Flight.all, :takeoff, :takeoff  %>
+    <%= f.collection_select :date, Flight.all, :takeoff, :takeoff_date_formatted  %>
+
+    <br /><br />
+
+    <%= f.submit "Search", class: "px-5 py-2 bg-blue-600 text-white" %>
 <% end  %>

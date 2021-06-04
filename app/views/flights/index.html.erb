@@ -3,5 +3,20 @@
 </header>
 <main>
     <%= render "search" %>
+    <table class="border table-auto">
+        <tr>
+            <thead>
+                <tr>
+                    <th class="border text-left px-4 py-2">Origin</th>
+                    <th class="border text-left px-4 py-2">Destination</th>
+                    <th class="border text-left px-4 py-2">Takeoff</th>
+                    <th class="border text-left px-4 py-2">Flight Duration</th>
+                </tr>
+            </thead>
+        </tr>
+        <% if @flights  %>
+            <%= render @flights  %>
+        <% end %>
+    </table>
 </main>
 

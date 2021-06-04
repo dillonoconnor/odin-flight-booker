@@ -1,5 +1,10 @@
 class FlightsController < ApplicationController
   def index
-    @flight_dates = Flight.all.map { |f| f.takeoff }
+    if params[:commit]
+      @flights = Flight.where(
+        origin: params[:departure_id],
+        destination: params[:arrival_id]
+      )
+    end
   end
 end
