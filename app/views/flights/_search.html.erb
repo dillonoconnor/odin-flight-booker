@@ -1,21 +1,21 @@
-<%= form_with url: root_url, method: :get, class: "p-3"  do |f|  %>
-    <%= f.label :from  %>
-    <%= f.collection_select :departure_id, Airport.all, :id, :code  %>
+<%= form_with url: root_url, method: :get  do |f|  %>
+    <%= f.label :from, class: "font-bold"  %>
+    <%= f.collection_select :origin, Airport.all, :id, :code  %>
 
     <br /><br />
 
-    <%= f.label :to %>
-    <%= f.collection_select :arrival_id, Airport.all, :id, :code  %>
+    <%= f.label :to, class: "font-bold" %>
+    <%= f.collection_select :destination, Airport.all, :id, :code  %>
 
     <br /><br />
 
-    <%= f.label :passengers  %>
+    <%= f.label :passengers, class: "font-bold"  %>
     <%= f.select :passengers, (1..4).to_a  %>
 
     <br /><br />
 
-    <%= f.label :date  %>
-    <%= f.collection_select :date, Flight.all, :takeoff, :takeoff_date_formatted  %>
+    <%= f.label :date, class: "font-bold"  %>
+    <%= date_field_tag :takeoff %>
 
     <br /><br />
 

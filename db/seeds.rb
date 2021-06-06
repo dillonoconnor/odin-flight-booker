@@ -8,7 +8,7 @@ end
   Flight.create!(
     origin: rand(1..3),
     destination: rand(4..5),
-    takeoff: rand(DateTime.now..(DateTime.now + 1.month)),
+    takeoff: rand(Date.today..(Date.today + 1.month)),
     flight_duration: rand(55..188)
   )
 end

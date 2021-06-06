@@ -1,22 +1,22 @@
 <header class="flex justify-center mt-3 text-lg font-bold">
-    <h1>One-Way Flights</h1>
+    <h1><%= link_to "ONE WAY FLIGHTS", root_url  %></h1>
 </header>
-<main>
+<main class="p-3">
     <%= render "search" %>
-    <table class="border table-auto">
-        <tr>
-            <thead>
-                <tr>
-                    <th class="border text-left px-4 py-2">Origin</th>
-                    <th class="border text-left px-4 py-2">Destination</th>
-                    <th class="border text-left px-4 py-2">Takeoff</th>
-                    <th class="border text-left px-4 py-2">Flight Duration</th>
-                </tr>
-            </thead>
-        </tr>
-        <% if @flights  %>
+    <% if @flights  %>
+        <table class="border table-auto mt-9">
+            <tr>
+                <thead>
+                    <tr>
+                        <th class="border text-left px-4 py-2">Origin</th>
+                        <th class="border text-left px-4 py-2">Destination</th>
+                        <th class="border text-left px-4 py-2">Takeoff</th>
+                        <th class="border text-left px-4 py-2">Flight Duration</th>
+                    </tr>
+                </thead>
+            </tr>
             <%= render @flights  %>
-        <% end %>
-    </table>
+        </table>
+    <% end %>
 </main>
 

@@ -1,10 +1,11 @@
 class FlightsController < ApplicationController
   def index
-    if params[:commit]
-      @flights = Flight.where(
-        origin: params[:departure_id],
-        destination: params[:arrival_id]
-      )
-    end
+    @flights = Flight.where(flight_params) unless flight_params.empty?
+  end
+
+  private
+
+  def flight_params
+    params.permit(:origin, :destination, :takeoff)
   end
 end

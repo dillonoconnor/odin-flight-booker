@@ -2,5 +2,5 @@
     <td class="border px-4 py-2"><%= Airport.find(flight.origin).code %></td>
     <td class="border px-4 py-2"><%= Airport.find(flight.destination).code %></td>
     <td class="border px-4 py-2"><%= flight.takeoff_date_formatted %></td>
-    <td class="border px-4 py-2"><%= flight.flight_duration %></td>
+    <td class="border px-4 py-2"><%= flight.pretty_duration %></td>
 </tr>
