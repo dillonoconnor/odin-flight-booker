@@ -3,17 +3,17 @@
         <div class="flex justify-between">
             <div class="w-5/12">
                 <%= f.label :from, class: "text-gray-800 uppercase font-bold text-sm py-2"  %><br />
-                <%= f.collection_select :origin, Airport.all, :id, :code, {}, { class: "w-full py-2 px-3 bg-opacity-60 bg-white border-2 rounded" }  %>
+                <%= f.collection_select :origin, Airport.all, :id, :code, { selected: params[:origin] }, { class: "w-full py-2 px-3 bg-opacity-60 bg-white border-2 rounded" }  %>
             </div>
             <div class="w-5/12">
                 <%= f.label :to, class: "text-gray-800 uppercase font-bold text-sm py-2" %><br />
-                <%= f.collection_select :destination, Airport.all, :id, :code, {}, { class: "w-full py-2 px-3 bg-opacity-60 bg-white border-2 rounded" }  %>
+                <%= f.collection_select :destination, Airport.all, :id, :code, { selected: params[:destination] }, { class: "w-full py-2 px-3 bg-opacity-60 bg-white border-2 rounded" }  %>
             </div>
         </div>
         <div class="flex justify-between mt-5 items-end">
             <div class="w-5/12">
                 <%= f.label :passengers, class: "text-gray-800 uppercase font-bold text-sm pr-4 py-2"  %><br />
-                <%= f.select :passengers, (1..4).to_a, {}, {  class: "w-full py-2 px-3 border-2 rounded bg-white" }  %>
+                <%= f.select :passengers, (1..4).to_a, { selected: params[:passengers] }, {  class: "w-full py-2 px-3 border-2 rounded bg-white" }  %>
             </div>
             <div class="w-5/12">
                 <%= f.label :departing, class: "text-gray-800 uppercase font-bold text-sm pr-4 py-2"  %>
