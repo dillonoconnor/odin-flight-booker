@@ -1,7 +1,7 @@
 <tr>
-    <td class="border px-4 py-2 text-sm"><%= Airport.find(flight.origin).code %></td>
-    <td class="border px-4 py-2 text-sm"><%= Airport.find(flight.destination).code %></td>
-    <td class="border px-4 py-2 text-sm"><%= flight.takeoff_date_formatted %></td>
-    <td class="border px-4 py-2 text-sm"><%= flight.pretty_duration %></td>
-    <td class="border px-4 py-2 text-sm text-center"><%= link_to "Book", new_booking_path(flight), class: " px-3 py-1 bg-blue-900 text-white rounded shadow"  %></td>
+    <td class="px-4 py-2 text-sm"><%= Airport.find(flight.origin).code %></td>
+    <td class="px-4 py-2 text-sm"><%= Airport.find(flight.destination).code %></td>
+    <td class="px-4 py-2 text-sm"><%= flight.takeoff_date_formatted %></td>
+    <td class="px-4 py-2 text-sm"><%= flight.pretty_duration %></td>
+    <td class="px-4 py-2 text-sm text-center"><%= link_to "Book", new_bookings_path(flight_id: flight.id, passenger_count: params[:passengers]), class: "px-3 py-1 bg-blue-900 text-white rounded shadow"  %></td>
 </tr>

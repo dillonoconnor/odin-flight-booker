@@ -1,3 +1,30 @@
-<%= form_with model: @booking do |f| %>
-    <%= f.label :email  %>
+<%= form_with model: @booking, class: "p-3"  do |f| %>
+    <header class="flex justify-between items-start mb-5">
+        <h1 class="text-opacity-90 text-xl font-bold mb-3">Review Your Flight ✈️</h1>
+        <%= link_to "Start Over", root_path, class: "px-3 py-1 bg-blue-900 text-white rounded shadow" %>
+    </header>
+    <%= fields_for :flight, @flight do |fl| %>
+        <table class="border bg-white table-auto w-full mb-3">
+            <tr>
+                <thead>
+                    <tr>
+                        <th class="underline text-left px-4 py-2">Origin</th>
+                        <th class="underline text-left px-4 py-2">Destination</th>
+                        <th class="underline text-left px-4 py-2">Takeoff</th>
+                        <th class="underline text-left px-4 py-2">Flight Duration</th>
+                    </tr>
+                </thead>
+            </tr>
+            <tr>
+                <td class="px-4 py-2 text-sm"><%= Airport.find(fl.object.origin).code %></td>
+                <td class="px-4 py-2 text-sm"><%= Airport.find(fl.object.destination).code %></td>
+                <td class="px-4 py-2 text-sm"><%= fl.object.takeoff_date_formatted %></td>
+                <td class="px-4 py-2 text-sm"><%= fl.object.pretty_duration %></td>
+            </tr>
+        </table>
+    <% end  %>
+    <p class="text-sm mb-5">Tickets: <%= params[:passenger_count] %></p>
+    <%= f.label :email, "Where to send your #{'ticket'.pluralize(params[:passenger_count].to_i)}", class: "text-gray-800 uppercase font-bold text-sm mb-2"  %><br />
+    <%= f.email_field :email, { placeholder: "hey@hey.com", class: "border p-2 text-sm" } %><br />
+    <%= f.submit "Book it!", class: "px-5 py-2 bg-gray-900 text-white rounded shadow mt-6" %>
 <% end  %>
