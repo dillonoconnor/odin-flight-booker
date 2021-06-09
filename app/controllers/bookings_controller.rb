@@ -9,6 +9,6 @@ class BookingsController < ApplicationController
     @email = params[:booking][:email]
     @flight_id = params[:booking][:flight]
     PassengerMailer.with(email: @email, flight_id: @flight_id).ticket_email.deliver_later
-    redirect_to root_url
+    redirect_to root_url, notice: "Check your email for your purchase confirmation."
   end
 end
