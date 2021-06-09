@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+      <h1 style="margin: .2em 0">Enjoy your flight, <%= @passenger.name %>.</h1>
+      <p style="margin: 0">Thank you for flying with us.</p>
+      <h3>Review your itinerary:</h3>
+      <table style="border-collapse: collapse">
+          <tr>
+              <thead style="background-color: #125d98; color: white">
+                  <tr>
+                      <th style="padding: 5px">Origin</th>
+                      <th style="padding: 5px">Destination</th>
+                      <th style="padding: 5px">Takeoff</th>
+                      <th style="padding: 5px">Flight Duration</th>
+                  </tr>
+              </thead>
+          </tr>
+          <tr style="background-color: #dddddd">
+              <td style="padding: 5px"><%= @origin %></td>
+              <td style="padding: 5px"><%= @destination %></td>
+              <td style="padding: 5px"><%= @takeoff %></td>
+              <td style="padding: 5px"><%= @duration %></td>
+          </tr>
+      </table>
+  </body>
+</html>

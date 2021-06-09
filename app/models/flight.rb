@@ -5,7 +5,7 @@ class Flight < ApplicationRecord
   has_many :passengers, through: :bookings
 
   def takeoff_date_formatted
-    takeoff.strftime("%b %d at  %l:%M")
+    takeoff.strftime("%b %d at %l:%M")
   end
 
   def pretty_duration

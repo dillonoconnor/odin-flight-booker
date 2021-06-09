@@ -24,6 +24,9 @@
         </table>
     <% end  %>
     <p class="text-sm mb-5">Tickets: <%= params[:passenger_count] %></p>
+    <%= f.hidden_field :flight, value: @flight.id %>
+    <%= f.label :name, class: "text-gray-800 uppercase font-bold text-sm mb-2" %><br />
+    <%= f.text_field :name, class: "border p-2 text-sm mb-3" %><br />
     <%= f.label :email, "Where to send your #{'ticket'.pluralize(params[:passenger_count].to_i)}", class: "text-gray-800 uppercase font-bold text-sm mb-2"  %><br />
     <%= f.email_field :email, { placeholder: "hey@hey.com", class: "border p-2 text-sm" } %><br />
     <%= f.submit "Book it!", class: "px-5 py-2 bg-gray-900 text-white rounded shadow mt-6" %>
