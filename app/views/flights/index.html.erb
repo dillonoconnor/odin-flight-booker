@@ -5,20 +5,24 @@
     <%= render "search" %>
     <% if @flights && @flights.count > 0  %>
         <div class="bg-white rounded w-1/2 m-auto p-1 mt-9 shadow-lg">
-            <table class="border bg-white table-auto w-full">
-                <tr>
-                    <thead>
-                        <tr>
-                            <th class="underline text-left px-4 py-2">Origin</th>
-                            <th class="underline text-left px-4 py-2">Destination</th>
-                            <th class="underline text-left px-4 py-2">Takeoff</th>
-                            <th class="underline text-left px-4 py-2">Flight Duration</th>
-                        </tr>
-                    </thead>
-                </tr>
-                <%= render @flights  %>
-            </table>
+            <% if @flights.count > 0 %>
+                <table class="border bg-white table-auto w-full">
+                    <tr>
+                        <thead>
+                            <tr>
+                                <% %w(Origin Destination Takeoff Flight\ Duration).each do |heading|  %>
+                                    <th class="underline text-left px-4 py-2"><%= heading %></th>
+                                <% end  %>
+                            </tr>
+                        </thead>
+                    </tr>
+                    <tbody>
+                        <%= render @flights %>
+                    </tbody>
+                </table>
+            <% else  %>
+                <p class="px-2 py-1 text-sm">No flights found on the requested date.</p>
+            <% end  %>
         </div>
     <% end %>
 </main>
-

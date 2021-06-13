@@ -5,22 +5,22 @@
         <%= link_to "Start Over", root_path, class: "px-3 py-1 bg-blue-900 text-white rounded shadow" %>
     </header>
         <table class="border bg-white table-auto w-full mb-3">
-            <tr>
-                <thead>
-                    <tr>
-                        <th class="underline text-left px-4 py-2">Origin</th>
-                        <th class="underline text-left px-4 py-2">Destination</th>
-                        <th class="underline text-left px-4 py-2">Takeoff</th>
-                        <th class="underline text-left px-4 py-2">Flight Duration</th>
-                    </tr>
-                </thead>
-            </tr>
-            <tr>
-                <td class="px-4 py-2 text-sm"><%= Airport.find(@flight.origin).code %></td>
-                <td class="px-4 py-2 text-sm"><%= Airport.find(@flight.destination).code %></td>
-                <td class="px-4 py-2 text-sm"><%= @flight.takeoff_date_formatted %></td>
-                <td class="px-4 py-2 text-sm"><%= @flight.pretty_duration %></td>
-            </tr>
+            <thead>
+                <tr>
+                    <% %w(Origin Destination Takeoff Flight\ Duration).each do |heading|  %>
+                        <th class="underline text-left px-4 py-2"><%= heading %></th>
+                    <% end  %>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2 text-sm"><%= Airport.find(@flight.origin).code %></td>
+                    <td class="px-4 py-2 text-sm"><%= Airport.find(@flight.destination).code %></td>
+                    <td class="px-4 py-2 text-sm"><%= @flight.takeoff_date_formatted %></td>
+                    <td class="px-4 py-2 text-sm"><%= @flight.pretty_duration %></td>
+                </tr>
+            </tbody>
+
         </table>
     <p class="text-sm mb-5">Tickets: <%= @passengers %></p>
     <%= f.fields_for :passenger do |p| %>

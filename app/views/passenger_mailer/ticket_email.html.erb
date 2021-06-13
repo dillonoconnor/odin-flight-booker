@@ -8,15 +8,11 @@
       <p style="margin: 0">Thank you for flying with us.</p>
       <h3>Review your itinerary:</h3>
       <table style="border-collapse: collapse">
-          <tr>
-              <thead style="background-color: #125d98; color: white">
-                  <tr>
-                      <th style="padding: 5px">Origin</th>
-                      <th style="padding: 5px">Destination</th>
-                      <th style="padding: 5px">Takeoff</th>
-                      <th style="padding: 5px">Flight Duration</th>
-                  </tr>
-              </thead>
+          <thead style="background-color: #125d98; color: white">
+              <% %w(Origin Destination Takeoff Flight\ Duration).each do |heading|  %>
+                  <th style="padding: 5px"><%= heading %></th>
+              <% end  %>
+          </thead>
           </tr>
           <tr style="background-color: #dddddd">
               <td style="padding: 5px"><%= @origin %></td>
